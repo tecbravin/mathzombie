@@ -19339,6 +19339,7 @@ GameObject:
   - component: {fileID: 114313882177952152}
   - component: {fileID: 114711563749760058}
   - component: {fileID: 114479021208482228}
+  - component: {fileID: 6758283068347562574}
   m_Layer: 11
   m_Name: Hoverbuggy
   m_TagString: Untagged
@@ -19361,6 +19362,7 @@ Transform:
   - {fileID: 4193058270655844}
   - {fileID: 4405945576505646}
   - {fileID: 4868172392206810}
+  - {fileID: 27073158520060457}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -19374,7 +19376,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 1
+  m_Speed: 2
   m_Acceleration: 20
   avoidancePriority: 80
   m_AngularSpeed: 360
@@ -19400,7 +19402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   configuration:
     maxHealth: 4
-    startingHealth: 4
+    startingHealth: 1
     alignment:
       unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
         type: 2}
@@ -19501,7 +19503,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243247032315055076, guid: c40bed98f23a748f89472abe9c1a6871,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 5ca1c7b56e224434ca2a97b9c64f4e08, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 284169030cdb44ac5aeed3136719a521, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -19673,6 +19675,20 @@ MonoBehaviour:
   deathParticleSystemPrefab: {fileID: 198059975614214484, guid: 10eef6400678c4c75b2ac94e435a2bd5,
     type: 3}
   deathEffectOffset: {x: 0, y: 0.5, z: 0}
+--- !u!114 &6758283068347562574
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511114609136056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b88cc8d81009a8c4299c9cee5e9e63db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  equation: {fileID: 0}
+  text: {fileID: 6395281938071796298}
 --- !u!1 &1513377180020570
 GameObject:
   m_ObjectHideFlags: 0
@@ -43535,3 +43551,110 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &8861192616506458125
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 27073158520060457}
+  - component: {fileID: 6664558494094891465}
+  - component: {fileID: 6395281938071796298}
+  - component: {fileID: 2294005017312580139}
+  m_Layer: 11
+  m_Name: Equation
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &27073158520060457
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861192616506458125}
+  m_LocalRotation: {x: 0.5, y: 0.5, z: -0.5, w: 0.5}
+  m_LocalPosition: {x: 0, y: 2, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4066970842593808}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 90, y: 90, z: 0}
+--- !u!23 &6664558494094891465
+MeshRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861192616506458125}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 2
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 2
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10100, guid: 0000000000000000e000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+--- !u!102 &6395281938071796298
+TextMesh:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861192616506458125}
+  m_Text: Hello World
+  m_OffsetZ: 1
+  m_CharacterSize: 1
+  m_LineSpacing: 1
+  m_Anchor: 0
+  m_Alignment: 1
+  m_TabSize: 12
+  m_FontSize: 12
+  m_FontStyle: 0
+  m_RichText: 1
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+--- !u!114 &2294005017312580139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8861192616506458125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16f814b4ad23ef4ab50e9c01bb17190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 1025302465844600, guid: 28035762430e74813854d9ca46df3ebd, type: 3}
