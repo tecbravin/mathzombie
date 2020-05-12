@@ -43804,6 +43804,7 @@ GameObject:
   - component: {fileID: 3023729517434950416}
   - component: {fileID: 9043352560078568813}
   - component: {fileID: 4682044242378536754}
+  - component: {fileID: 2361657032845025450}
   m_Layer: 11
   m_Name: Equation
   m_TagString: Untagged
@@ -43886,3 +43887,16 @@ TextMesh:
   m_Color:
     serializedVersion: 2
     rgba: 4294967295
+--- !u!114 &2361657032845025450
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7924921706954169998}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e16f814b4ad23ef4ab50e9c01bb17190, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  go: {fileID: 0}
