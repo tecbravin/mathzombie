@@ -19,6 +19,7 @@ namespace TowerDefense.Input
 		/// <summary>
 		/// Register input events
 		/// </summary>
+/*
 		protected override void OnEnable()
 		{
 			base.OnEnable();
@@ -163,5 +164,8 @@ namespace TowerDefense.Input
 				}
 			}
 		}
+	}
+	*/
+
 	}
 }

@@ -7,6 +7,8 @@ using TowerDefense.Towers.Projectiles;
 using ActionGameFramework.Health;
 using TowerDefense.Agents;
 using Core.Health;
+using UnityInput = UnityEngine.Input;
+using UnityEngine.EventSystems;
 
 public class AnswerScript : MonoBehaviour
 {
@@ -17,10 +19,10 @@ public class AnswerScript : MonoBehaviour
     {
         Button btn = GetComponentInChildren<Button>();
         answer = GetComponentInChildren<InputField>();
-		btn.onClick.AddListener(TaskOnClick);
+		btn.onClick.AddListener(EvaluateAnswer);
     }
 
-    void TaskOnClick(){
+    void EvaluateAnswer(){
         GetActiveChildren(waveContainer);
 	}
 
@@ -37,24 +39,54 @@ public class AnswerScript : MonoBehaviour
             }
         }
         if (score == 0){
-            Debug.Log("errou");
+            //Debug.Log("errou");
         }else{
-            Debug.Log("acertou pelo menos 1, faz alguma coisa");
+            //Debug.Log("acertou pelo menos 1, faz alguma coisa");
         }
         answer.text = "";
+        SetSelected(answer.gameObject);
+        SetSelected(answer.gameObject);
     }
 
     bool validateAnswer(Transform go){
         Equation eq = go.GetComponent<EnemyEquation>().equation;
         Debug.Log(eq.result);
         if(int.Parse(answer.text) == eq.result){
-            Debug.Log("morreu");
             Vector3 ponto = new Vector3(0,0,0);
-            
-            go.gameObject.GetComponent<AttackingAgent>().TakeDamage(100.0f, ponto, go.gameObject.GetComponent<Damager>().alignmentProvider);
-            
+            if(go.gameObject.GetComponent<AttackingAgent>()){
+                go.gameObject.GetComponent<AttackingAgent>().TakeDamage(100.0f, ponto, go.gameObject.GetComponent<Damager>().alignmentProvider);
+            }else{
+                go.gameObject.GetComponent<FlyingAgent>().TakeDamage(100.0f, ponto, go.gameObject.GetComponent<Damager>().alignmentProvider);
+            }
             return true;
         }
         return false;
+    }
+
+    protected void Update(){
+		if (UnityInput.GetKeyDown(KeyCode.Return)  || UnityInput.GetKeyDown("enter")){
+            EvaluateAnswer();      
+		}
+
+        if (UnityInput.GetKeyDown("space")){
+            SetSelected(answer.gameObject);
+		}
+
+	}
+
+     private void SetSelected(GameObject go)
+    {
+        //Select the GameObject.
+        EventSystem.current.SetSelectedGameObject(go);
+
+        //If we are using the keyboard right now, that's all we need to do.
+        var standaloneInputModule = EventSystem.current.currentInputModule as StandaloneInputModule;
+        if (standaloneInputModule != null && standaloneInputModule.inputMode == StandaloneInputModule.InputMode.Buttons)
+            return;
+
+        //Since we are using a pointer device, we don't want anything selected. 
+        //But if the user switches to the keyboard, we want to start the navigation from the provided game object.
+        //So here we set the current Selected to null, so the provided gameObject becomes the Last Selected in the EventSystem.
+        EventSystem.current.SetSelectedGameObject(null);
     }
 }

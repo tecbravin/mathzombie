@@ -61,7 +61,8 @@ namespace TowerDefense.UI
 				return;
 			}
 
-			int amount = m_LevelList.Count;
+			int amount = 1;
+			//int amount = m_LevelList.Count;
 			for (int i = 0; i < amount; i++)
 			{
 				LevelSelectButton button = CreateButton(m_LevelList[i]);
@@ -81,8 +82,8 @@ namespace TowerDefense.UI
 			}
 			
 
-			SetUpNavigation(m_Buttons[0], backButton, m_Buttons[1]);
-			SetUpNavigation(m_Buttons[m_Buttons.Count - 1], m_Buttons[m_Buttons.Count - 2], null);
+			//SetUpNavigation(m_Buttons[0], backButton, m_Buttons[1]);
+			//SetUpNavigation(m_Buttons[m_Buttons.Count - 1], m_Buttons[m_Buttons.Count - 2], null);
 			
 			mouseScroll.SetHasRightBuffer(rightBuffer != null);
 		}

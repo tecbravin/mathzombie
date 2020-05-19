@@ -32,13 +32,6 @@ namespace Core.Utilities.LevelEquationManager
             //eq = GenerateEquation(numbersForEquation, operationsForEquation,equationDifficulty, eq);   
         }
 
-
-        // Update is called once per frame
-        void Update()
-        {
-            
-        }
-
         public Equation CallEquation()
         {           
             Equation eq = GenerateEquation(numbersForEquation, operationsForEquation, equationDifficulty);
@@ -55,7 +48,7 @@ namespace Core.Utilities.LevelEquationManager
             
             for(int i = 0; i<operationsForEquation;i++ ){
                 equation.operations.Add(Signal(Random.Range(0,operationsAvailable)));
-                equation.fullEq+=' ' + equation.operations[i] + ' ' + equation.numbers[i+1];
+                equation.fullEq+=" " + equation.operations[i].ToString() + " " + equation.numbers[i+1].ToString();
                 switch(equation.operations[i]){
                     case "-": 
                         equation.result = equation.numbers[0] - equation.numbers[1];

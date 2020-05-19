@@ -21,7 +21,6 @@ namespace Core.Health
 		public bool CanHarm(IAlignmentProvider other)
 		{
 				return true;
-
 			
 			var otherAlignment = other as SimpleAlignment;
 			

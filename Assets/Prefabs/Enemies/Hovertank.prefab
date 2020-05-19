@@ -4908,8 +4908,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   configuration:
-    maxHealth: 35
-    startingHealth: 35
+    maxHealth: 3
+    startingHealth: 3
     alignment:
       unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
         type: 2}
@@ -5194,7 +5194,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
-  text: {fileID: 3794337585179454849}
+  textlabel: {fileID: 0}
+  startingEquationDifficulty: 3
+  startingOperations: 2
+  startingNumbersForEquations: 2
+  equationDifficulty: 0
+  operationsForEquation: 0
+  operationsAvailable: 0
+  numbersForEquation: 0
 --- !u!1 &1291363099768310
 GameObject:
   m_ObjectHideFlags: 0
@@ -43867,4 +43874,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f814b4ad23ef4ab50e9c01bb17190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 0}
