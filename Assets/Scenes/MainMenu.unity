@@ -6124,7 +6124,7 @@ RectTransform:
   m_AnchorMax: {x: 1, y: 0.5}
   m_AnchoredPosition: {x: 45.25, y: -41.100006}
   m_SizeDelta: {x: -90.5, y: 271}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_Pivot: {x: 3, y: 0.5}
 --- !u!114 &286871800
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -49727,7 +49727,7 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.51
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -50145,7 +50145,7 @@ VideoPlayer:
   m_AudioOutputMode: 1
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: 
+  m_Url: https://streamable.com/qpxw80
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0
@@ -50166,7 +50166,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 68e681912bb2e4047a3ff9a20dac4cb6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.571
+  m_Volume: 0.164
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -50665,6 +50665,11 @@ PrefabInstance:
       propertyPath: spreadCustomCurve.m_RotationOrder
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 82836000288002542, guid: abb1aca7f374d4d518e9857a8a14a963,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.235
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: abb1aca7f374d4d518e9857a8a14a963, type: 3}
 --- !u!1 &948278986
@@ -50975,7 +50980,7 @@ RectTransform:
   m_AnchorMax: {x: 0, y: 0.5}
   m_AnchoredPosition: {x: 0, y: 94.5}
   m_SizeDelta: {x: 93, y: 271.2}
-  m_Pivot: {x: 0, y: 1}
+  m_Pivot: {x: -2.3, y: 1}
 --- !u!82 &1005852483
 AudioSource:
   m_ObjectHideFlags: 0
@@ -80281,7 +80286,7 @@ MonoBehaviour:
     m_Right: 0
     m_Top: 0
     m_Bottom: 0
-  m_ChildAlignment: 3
+  m_ChildAlignment: 4
   m_Spacing: 2
   m_ChildForceExpandWidth: 0
   m_ChildForceExpandHeight: 0

@@ -15,6 +15,5 @@ MonoBehaviour:
   levels:
   - id: 0
     name: FASE 1
-    description: "Mostre que voc\xEA \xE9 bom de matem\xE1tica e evite o avan\xE7o
-      dos inimigos"
+    description: "Mostre que voc\xEA \xE9 bom de matem\xE1tica!"
     sceneName: Fase1

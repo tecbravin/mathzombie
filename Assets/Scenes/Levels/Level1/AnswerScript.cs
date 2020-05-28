@@ -15,11 +15,13 @@ public class AnswerScript : MonoBehaviour
     public InputField answer;
     public Button button;
     public GameObject waveContainer;
+    private TouchScreenKeyboard keyboard;
     void Start()
     {
         Button btn = GetComponentInChildren<Button>();
         answer = GetComponentInChildren<InputField>();
 		btn.onClick.AddListener(EvaluateAnswer);
+        SetSelected(answer.gameObject);
     }
 
     void EvaluateAnswer(){
@@ -50,7 +52,6 @@ public class AnswerScript : MonoBehaviour
 
     bool validateAnswer(Transform go){
         Equation eq = go.GetComponent<EnemyEquation>().equation;
-        Debug.Log(eq.result);
         if(int.Parse(answer.text) == eq.result){
             Vector3 ponto = new Vector3(0,0,0);
             if(go.gameObject.GetComponent<AttackingAgent>()){
@@ -64,6 +65,13 @@ public class AnswerScript : MonoBehaviour
     }
 
     protected void Update(){
+        if(Application.isMobilePlatform){
+            if(keyboard == null){
+            SetSelected(answer.gameObject);
+            keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad, false, false, true);
+            }
+            return;
+        }
 		if (UnityInput.GetKeyDown(KeyCode.Return)  || UnityInput.GetKeyDown("enter")){
             EvaluateAnswer();      
 		}
@@ -72,6 +80,30 @@ public class AnswerScript : MonoBehaviour
             SetSelected(answer.gameObject);
 		}
 
+        if( EventSystem.current.currentSelectedGameObject != answer.gameObject){
+            if(UnityInput.GetKeyDown("1") || UnityInput.GetKeyDown(KeyCode.Keypad1)){
+                answer.text+="1";
+            }else if(UnityInput.GetKeyDown("2") || UnityInput.GetKeyDown(KeyCode.Keypad2)){
+                answer.text+="2";
+            }else if(UnityInput.GetKeyDown("3") || UnityInput.GetKeyDown(KeyCode.Keypad3)){
+                answer.text+="3";
+            }else if(UnityInput.GetKeyDown("4") || UnityInput.GetKeyDown(KeyCode.Keypad4)){
+                answer.text+="4";
+            }else if(UnityInput.GetKeyDown("5") || UnityInput.GetKeyDown(KeyCode.Keypad5)){
+                answer.text+="5";
+            }else if(UnityInput.GetKeyDown("6") || UnityInput.GetKeyDown(KeyCode.Keypad6)){
+                answer.text+="6";
+            }else if(UnityInput.GetKeyDown("7") || UnityInput.GetKeyDown(KeyCode.Keypad7)){
+                answer.text+="7";
+            }else if(UnityInput.GetKeyDown("8") || UnityInput.GetKeyDown(KeyCode.Keypad8)){
+                answer.text+="8";
+            }else if(UnityInput.GetKeyDown("9") || UnityInput.GetKeyDown(KeyCode.Keypad9)){
+                answer.text+="9";
+            }else if(UnityInput.GetKeyDown("0") || UnityInput.GetKeyDown(KeyCode.Keypad0)){
+                answer.text+="0";
+            }
+            SetSelected(answer.gameObject);
+        }
 	}
 
      private void SetSelected(GameObject go)
@@ -89,4 +121,5 @@ public class AnswerScript : MonoBehaviour
         //So here we set the current Selected to null, so the provided gameObject becomes the Last Selected in the EventSystem.
         EventSystem.current.SetSelectedGameObject(null);
     }
+
 }
