@@ -16,7 +16,7 @@ namespace Core.Utilities.LevelEquationManager
     {
         // Start is called before the first frame update
         public int startingEquationDifficulty = 3;
-        public int startingOperations = 2;
+        public int startingOperations = 4;
         public int startingNumbersForEquations = 2;
         public int equationDifficulty;
         public int operationsForEquation;
@@ -53,6 +53,12 @@ namespace Core.Utilities.LevelEquationManager
                     case "-": 
                         equation.result = equation.numbers[0] - equation.numbers[1];
                     break;
+                    case "/": 
+                        equation.result = equation.numbers[0] / equation.numbers[1];
+                    break;
+                        case "X": 
+                        equation.result = equation.numbers[0] * equation.numbers[1];
+                    break;
                     default:
                         equation.result = equation.numbers[0] + equation.numbers[1];
                     break;
@@ -68,7 +74,7 @@ namespace Core.Utilities.LevelEquationManager
         string Signal (int sign){
             switch (sign){
                 case 1: return "-";
-                case 2: return "*";
+                case 2: return "X";
                 case 3: return "/";
                 default: return "+";
             }

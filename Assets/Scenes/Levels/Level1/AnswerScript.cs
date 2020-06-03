@@ -18,10 +18,19 @@ public class AnswerScript : MonoBehaviour
     private TouchScreenKeyboard keyboard;
     void Start()
     {
+        #if !UNITY_EDITOR && UNITY_WEBGL
+        WebGLInput.captureAllKeyboardInput = false;
+        #endif
         Button btn = GetComponentInChildren<Button>();
         answer = GetComponentInChildren<InputField>();
 		btn.onClick.AddListener(EvaluateAnswer);
         SetSelected(answer.gameObject);
+
+        if(Application.isMobilePlatform){
+            if(keyboard == null){
+            keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad);
+            }
+        }
     }
 
     void EvaluateAnswer(){
@@ -65,13 +74,12 @@ public class AnswerScript : MonoBehaviour
     }
 
     protected void Update(){
-        if(Application.isMobilePlatform){
-            if(keyboard == null){
-            SetSelected(answer.gameObject);
-            keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad, false, false, true);
-            }
-            return;
+        if (keyboard != null && keyboard.done){
+            answer.text = keyboard.text;
+            EvaluateAnswer();
         }
+
+
 		if (UnityInput.GetKeyDown(KeyCode.Return)  || UnityInput.GetKeyDown("enter")){
             EvaluateAnswer();      
 		}
@@ -102,8 +110,9 @@ public class AnswerScript : MonoBehaviour
             }else if(UnityInput.GetKeyDown("0") || UnityInput.GetKeyDown(KeyCode.Keypad0)){
                 answer.text+="0";
             }
-            SetSelected(answer.gameObject);
+           // SetSelected(answer.gameObject);
         }
+        
 	}
 
      private void SetSelected(GameObject go)

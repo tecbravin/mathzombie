@@ -19333,7 +19333,6 @@ GameObject:
   - component: {fileID: 114169816835889762}
   - component: {fileID: 114847362792086644}
   - component: {fileID: 82094088292764670}
-  - component: {fileID: 114755418864449814}
   - component: {fileID: 114378502089070424}
   - component: {fileID: 136866353072794800}
   - component: {fileID: 114313882177952152}
@@ -19589,19 +19588,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114755418864449814
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511114609136056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de49640db9f74ca892b78c0d6bb4eb02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireParticleSystem: {fileID: 198522976810761492}
 --- !u!114 &114378502089070424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19688,7 +19674,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
-  text: {fileID: 0}
+  textlabel: {fileID: 6395281938071796298}
+  startingEquationDifficulty: 20
+  startingOperations: 4
+  startingNumbersForEquations: 2
+  equationDifficulty: 0
+  operationsForEquation: 0
+  operationsAvailable: 0
+  numbersForEquation: 0
 --- !u!1 &1513377180020570
 GameObject:
   m_ObjectHideFlags: 0
@@ -43631,7 +43624,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8861192616506458125}
-  m_Text: Hello World
+  m_Text: 
   m_OffsetZ: 1
   m_CharacterSize: 1
   m_LineSpacing: 1
@@ -43657,4 +43650,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e16f814b4ad23ef4ab50e9c01bb17190, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go: {fileID: 1025302465844600, guid: 28035762430e74813854d9ca46df3ebd, type: 3}

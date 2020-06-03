@@ -19158,7 +19158,6 @@ GameObject:
   - component: {fileID: 114579457201393578}
   - component: {fileID: 114731974207352776}
   - component: {fileID: 82899973237940640}
-  - component: {fileID: 114956389698096102}
   - component: {fileID: 114313870498114478}
   - component: {fileID: 136006059290064374}
   - component: {fileID: 114958298513550636}
@@ -19201,7 +19200,7 @@ NavMeshAgent:
   m_Enabled: 1
   m_AgentTypeID: 0
   m_Radius: 0.2
-  m_Speed: 2.2
+  m_Speed: 1.8
   m_Acceleration: 20
   avoidancePriority: 85
   m_AngularSpeed: 360
@@ -19414,19 +19413,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114956389698096102
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1567776943554846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de49640db9f74ca892b78c0d6bb4eb02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireParticleSystem: {fileID: 198235514516507754}
 --- !u!114 &114313870498114478
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19513,13 +19499,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
-  textlabel: {fileID: 0}
-  startingEquationDifficulty: 3
-  startingOperations: 2
+  textlabel: {fileID: 2679573588782312709}
+  startingEquationDifficulty: 9
+  startingOperations: 3
   startingNumbersForEquations: 2
   equationDifficulty: 0
   operationsForEquation: 0
-  operationsAvailable: 0
+  operationsAvailable: 3
   numbersForEquation: 0
 --- !u!1 &1571846842962730
 GameObject:

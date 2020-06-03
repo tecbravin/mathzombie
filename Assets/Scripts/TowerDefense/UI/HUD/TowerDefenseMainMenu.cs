@@ -45,6 +45,9 @@ namespace TowerDefense.UI.HUD
 		public void ShowTitleScreen()
 		{
 			Back(titleMenu);
+			UnityEngine.Video.VideoPlayer videoPlayer = GetComponentInChildren<UnityEngine.Video.VideoPlayer>();
+			videoPlayer.url = System.IO.Path.Combine(Application.streamingAssetsPath,"intro.mp4");
+			videoPlayer.Play();
 		}
 
 		/// <summary>

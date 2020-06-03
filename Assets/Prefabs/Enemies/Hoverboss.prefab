@@ -9529,7 +9529,6 @@ GameObject:
   - component: {fileID: 114603038459166214}
   - component: {fileID: 114565515371635964}
   - component: {fileID: 82428518445736458}
-  - component: {fileID: 114908469238434264}
   - component: {fileID: 114193652483182726}
   - component: {fileID: 65314383504805724}
   - component: {fileID: 114247900717428968}
@@ -9786,19 +9785,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114908469238434264
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1300474929184216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: de49640db9f74ca892b78c0d6bb4eb02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  fireParticleSystem: {fileID: 198051957405066016}
 --- !u!114 &114193652483182726
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9884,13 +9870,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
-  textlabel: {fileID: 0}
-  startingEquationDifficulty: 3
+  textlabel: {fileID: 4682044242378536754}
+  startingEquationDifficulty: 20
   startingOperations: 2
   startingNumbersForEquations: 2
   equationDifficulty: 0
   operationsForEquation: 0
-  operationsAvailable: 0
+  operationsAvailable: 5
   numbersForEquation: 0
 --- !u!1 &1310902026913456
 GameObject:

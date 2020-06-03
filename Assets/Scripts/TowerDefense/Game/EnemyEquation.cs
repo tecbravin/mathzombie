@@ -19,64 +19,62 @@ public class EnemyEquation : MonoBehaviour
    // public LevelEquationManager instance;
 
      public int startingEquationDifficulty = 3;
-        public int startingOperations = 2;
+        public int startingOperations = 4;
         public int startingNumbersForEquations = 2;
         public int equationDifficulty;
         public int operationsForEquation;
         public int operationsAvailable;
         public int numbersForEquation;
-      void Awake ()
-  {
+    void Awake ()
+    {
         numbersForEquation = startingNumbersForEquations;
         operationsForEquation = numbersForEquation-1;
-        equationDifficulty = startingEquationDifficulty * 10;
-        operationsAvailable = startingOperations;
-        
-      //if (instance == null) { instance = LevelEquationManager.instance; }
-      equation = GenerateEquation(numbersForEquation, operationsForEquation, equationDifficulty);
-  } 
-    void Start()
-    {
+        equationDifficulty = startingEquationDifficulty;
+    } 
 
-       
-       textlabel = GetComponentInChildren<TextMesh>();
-        textlabel.text = equation.fullEq;
+    public Equation GenerateEquation(){
+        textlabel = GetComponentInChildren<TextMesh>();
+        Equation eq = new Equation();
+        for(int i = 0; i<numbersForEquation;i++ ){
+            eq.numbers.Add(Random.Range(2, equationDifficulty));
+        }
+        eq.fullEq = eq.numbers[0].ToString();
+        
+        for(int i = 0; i<operationsForEquation;i++ ){
+            eq.operations.Add(Signal(operationsAvailable));
+            eq.fullEq+=" " + eq.operations[i].ToString() + " " + eq.numbers[i+1].ToString();
+            switch(eq.operations[i]){
+                case "-": 
+                    eq.result = eq.numbers[0] - eq.numbers[1];
+                break;
+                case "X": 
+                    eq.result = eq.numbers[0] * eq.numbers[1];
+                break;
+                case "/": 
+                    eq.result = eq.numbers[0] / eq.numbers[1];
+                                        Debug.Log(eq.result);
+                break;
+                default:
+                    eq.result = eq.numbers[0] + eq.numbers[1];
+                break;
+            }
+        }
+
+        textlabel.text = eq.fullEq;
+        equation = eq;
+        return eq;
     }
 
-    protected Equation GenerateEquation(int numbersForEquation, int operationsForEquation, int eqDifficulty){
-            Equation eq = new Equation();
-            for(int i = 0; i<numbersForEquation;i++ ){
-                eq.numbers.Add(Random.Range(2, eqDifficulty));
-                //Debug.Log(equation.numbers[i]);
-            }
-            eq.fullEq = eq.numbers[0].ToString();
-            
-            for(int i = 0; i<operationsForEquation;i++ ){
-                eq.operations.Add(Signal(Random.Range(0,operationsAvailable)));
-                eq.fullEq+=" " + eq.operations[i].ToString() + " " + eq.numbers[i+1].ToString();
-                switch(eq.operations[i]){
-                    case "-": 
-                        eq.result = eq.numbers[0] - eq.numbers[1];
-                    break;
-                    default:
-                        eq.result = eq.numbers[0] + eq.numbers[1];
-                    break;
-                }
-            }
-            
-            //Debug.Log((equation.fullEq));
-            //Debug.Log((equation.result));
-            return eq;
-        }
 
-
-        string Signal (int sign){
-            switch (sign){
-                case 1: return "-";
-                case 2: return "*";
-                case 3: return "/";
-                default: return "+";
-            }
+    string Signal (int sign){
+        if(sign == 5){
+            sign = Random.Range(0,3);
         }
-    
+        switch (sign){
+            case 1: return "-";
+            case 2: return "X";
+            case 3: return "/";
+            default: return "+";
+        }
+    }
 }

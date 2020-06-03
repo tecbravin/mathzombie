@@ -122,6 +122,9 @@ namespace TowerDefense.Level
 			agentInstance.Initialize();
 			agentInstance.SetNode(node);
 			agentInstance.transform.rotation = node.transform.rotation;
+			EnemyEquation scriptToAccess = agentInstance.gameObject.GetComponent<EnemyEquation>();
+			Equation eq = agentInstance.gameObject.GetComponent<Equation>();
+			eq = scriptToAccess.GenerateEquation();
 		}
 
 		/// <summary>
