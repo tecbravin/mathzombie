@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - id: 0
-    name: FASE 1
+    name: "Matem\xE1tica"
     description: "Mostre que voc\xEA \xE9 bom de matem\xE1tica!"
     sceneName: Fase1

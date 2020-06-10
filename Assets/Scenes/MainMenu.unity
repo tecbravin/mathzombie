@@ -50193,7 +50193,7 @@ VideoPlayer:
   m_AudioOutputMode: 1
   m_TargetAudioSources: []
   m_DirectAudioVolumes: []
-  m_Url: file:///StreamingAssets/intro.mp4
+  m_Url: file://intro.mp4
   m_EnabledAudioTracks: 
   m_DirectAudioMutes: 
   m_ControlledAudioTrackCount: 0

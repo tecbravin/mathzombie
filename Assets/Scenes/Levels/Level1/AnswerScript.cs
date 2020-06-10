@@ -3,29 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Core.Utilities.LevelEquationManager;
-using TowerDefense.Towers.Projectiles;
 using ActionGameFramework.Health;
 using TowerDefense.Agents;
-using Core.Health;
-using UnityInput = UnityEngine.Input;
 using UnityEngine.EventSystems;
 
 public class AnswerScript : MonoBehaviour
 {
-    
     public InputField answer;
-    InputfieldSlideScreen slideScreen;
     public Button button;
     public GameObject waveContainer;
-    //private TouchScreenKeyboard keyboard;
-    public GameObject keyboard;
+    public GameObject UIkeyboard;
+    public TouchScreenKeyboard keyboard;
     public Button[] keyboardButtons;
     public Button eraseButton;
     public Button minusButton;
     public Button sendButton;
 
     void SetKeyboard(){
-        keyboardButtons = keyboard.GetComponentsInChildren<Button>();
+        keyboardButtons = UIkeyboard.GetComponentsInChildren<Button>();
         eraseButton.onClick.AddListener(eraseClick);
         minusButton.onClick.AddListener(minusClick);
         for (int i = 0; i < keyboardButtons.Length; i++)
@@ -50,7 +45,7 @@ public class AnswerScript : MonoBehaviour
     void Start()
     {
         answer.caretPosition = 0;
-         #if (UNITY_WEBPLAYER || UNITY_WEBGL) && !UNITY_EDITOR
+        #if (UNITY_WEBPLAYER || UNITY_WEBGL) && !UNITY_EDITOR
         try {
             Application.ExternalCall("GameControlReady");
         } catch (System.Exception e) {
@@ -58,35 +53,28 @@ public class AnswerScript : MonoBehaviour
         }
          #endif
 
-        #if !UNITY_EDITOR && UNITY_WEBGL
+         #if !UNITY_EDITOR && UNITY_WEBGL
         WebGLInput.captureAllKeyboardInput = false;
-        #endif 
+        #endif
         
-        //answer = GetComponentInChildren<InputField>();
 		sendButton.onClick.AddListener(EvaluateAnswer);
         SetSelected(answer.gameObject);
 
          if(!Application.isMobilePlatform){
-            //keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad);
-            keyboard.SetActive(false);
+            UIkeyboard.SetActive(false);
             minusButton.gameObject.SetActive(false);
             eraseButton.gameObject.SetActive(false);
-         }
-         SetKeyboard();
-/* 
-         slideScreen = GameObject.Find("Game UI").GetComponent<InputfieldSlideScreen>();
-            #if UNITY_IOS
-            answer.shouldHideMobileInput=true;
-            #endif */
+            SetKeyboard();
+        }
     }
 
     void EvaluateAnswer(){
         GetActiveChildren(waveContainer);
 	}
 
-/*     void OpenKeyboard(){
+     void OpenKeyboard(){
         keyboard = TouchScreenKeyboard.Open("", TouchScreenKeyboardType.NumberPad);
-    } */
+    }
 
     void GetActiveChildren(GameObject go){
         bool hit = false;
@@ -125,7 +113,7 @@ public class AnswerScript : MonoBehaviour
     }
 
     protected void Update(){
-   /*  #if UNITY_IOS
+     #if UNITY_IOS
          if (answer.isFocused)
     {
         // Input field focused, let the slide screen script know about it.
@@ -138,40 +126,35 @@ public class AnswerScript : MonoBehaviour
         if (keyboard != null && keyboard.done){
             answer.text = keyboard.text;
             EvaluateAnswer();
-        } */
+        }
 
-		if (UnityInput.GetKeyDown(KeyCode.Return)  || UnityInput.GetKeyDown("enter")){
+		if (Input.GetKeyDown(KeyCode.Return)  || Input.GetKeyDown("enter") || Input.GetKeyDown("space")){
             EvaluateAnswer();      
 		}
-
-        else if (UnityInput.GetKeyDown("space")){
-            SetSelected(answer.gameObject);
-		}
-
         else if( EventSystem.current.currentSelectedGameObject != answer.gameObject){
-            if(UnityInput.GetKeyDown("1") || UnityInput.GetKeyDown(KeyCode.Keypad1)){
+            if(Input.GetKeyDown("1") || Input.GetKeyDown(KeyCode.Keypad1)){
                 answer.text+="1";
-            }else if(UnityInput.GetKeyDown("2") || UnityInput.GetKeyDown(KeyCode.Keypad2)){
+            }else if(Input.GetKeyDown("2") || Input.GetKeyDown(KeyCode.Keypad2)){
                 answer.text+="2";
-            }else if(UnityInput.GetKeyDown("3") || UnityInput.GetKeyDown(KeyCode.Keypad3)){
+            }else if(Input.GetKeyDown("3") || Input.GetKeyDown(KeyCode.Keypad3)){
                 answer.text+="3";
-            }else if(UnityInput.GetKeyDown("4") || UnityInput.GetKeyDown(KeyCode.Keypad4)){
+            }else if(Input.GetKeyDown("4") || Input.GetKeyDown(KeyCode.Keypad4)){
                 answer.text+="4";
-            }else if(UnityInput.GetKeyDown("5") || UnityInput.GetKeyDown(KeyCode.Keypad5)){
+            }else if(Input.GetKeyDown("5") || Input.GetKeyDown(KeyCode.Keypad5)){
                 answer.text+="5";
-            }else if(UnityInput.GetKeyDown("6") || UnityInput.GetKeyDown(KeyCode.Keypad6)){
+            }else if(Input.GetKeyDown("6") || Input.GetKeyDown(KeyCode.Keypad6)){
                 answer.text+="6";
-            }else if(UnityInput.GetKeyDown("7") || UnityInput.GetKeyDown(KeyCode.Keypad7)){
+            }else if(Input.GetKeyDown("7") || Input.GetKeyDown(KeyCode.Keypad7)){
                 answer.text+="7";
-            }else if(UnityInput.GetKeyDown("8") || UnityInput.GetKeyDown(KeyCode.Keypad8)){
+            }else if(Input.GetKeyDown("8") || Input.GetKeyDown(KeyCode.Keypad8)){
                 answer.text+="8";
-            }else if(UnityInput.GetKeyDown("9") || UnityInput.GetKeyDown(KeyCode.Keypad9)){
+            }else if(Input.GetKeyDown("9") || Input.GetKeyDown(KeyCode.Keypad9)){
                 answer.text+="9";
-            }else if(UnityInput.GetKeyDown("0") || UnityInput.GetKeyDown(KeyCode.Keypad0)){
+            }else if(Input.GetKeyDown("0") || Input.GetKeyDown(KeyCode.Keypad0)){
                 answer.text+="0";
             }
-           // SetSelected(answer.gameObject);
         }
+        //SetSelected(answer.gameObject);
         
 	}
 
@@ -190,7 +173,6 @@ public class AnswerScript : MonoBehaviour
         //So here we set the current Selected to null, so the provided gameObject becomes the Last Selected in the EventSystem.
         EventSystem.current.SetSelectedGameObject(null);
     }
-/* 
     public void FocusCanvas (string p_focus) {
         #if !UNITY_EDITOR && UNITY_WEBGL
         if (p_focus == "0") {
@@ -199,6 +181,5 @@ public class AnswerScript : MonoBehaviour
             WebGLInput.captureAllKeyboardInput = true;
         }
         #endif
-    } */
-
+    }
 }
