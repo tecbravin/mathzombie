@@ -54,7 +54,7 @@ public class AnswerScript : MonoBehaviour
          #endif
 
          #if !UNITY_EDITOR && UNITY_WEBGL
-        WebGLInput.captureAllKeyboardInput = false;
+            WebGLInput.captureAllKeyboardInput = false;
         #endif
         
 		sendButton.onClick.AddListener(EvaluateAnswer);
@@ -64,8 +64,9 @@ public class AnswerScript : MonoBehaviour
             UIkeyboard.SetActive(false);
             minusButton.gameObject.SetActive(false);
             eraseButton.gameObject.SetActive(false);
-            SetKeyboard();
         }
+        SetKeyboard();
+        OpenKeyboard();
     }
 
     void EvaluateAnswer(){
@@ -95,7 +96,6 @@ public class AnswerScript : MonoBehaviour
         }
         answer.text = "";
         SetSelected(answer.gameObject);
-        SetSelected(answer.gameObject);
     }
 
     bool validateAnswer(Transform go){
@@ -113,15 +113,14 @@ public class AnswerScript : MonoBehaviour
     }
 
     protected void Update(){
-     #if UNITY_IOS
-         if (answer.isFocused)
-    {
+/*         #if UNITY_IOS
+        if (answer.isFocused)
+        {
         // Input field focused, let the slide screen script know about it.
-        slideScreen.InputFieldActive = true;
-        slideScreen.childRectTransform = transform.GetComponent<RectTransform>();
+            slideScreen.InputFieldActive = true;
+            slideScreen.childRectTransform = transform.GetComponent<RectTransform>();
         }
-    }
-       #endif
+        #endif */
 
         if (keyboard != null && keyboard.done){
             answer.text = keyboard.text;
