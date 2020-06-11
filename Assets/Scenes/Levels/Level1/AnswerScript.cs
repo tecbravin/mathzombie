@@ -129,8 +129,8 @@ public class AnswerScript : MonoBehaviour
 		if (UnityInput.GetKeyDown(KeyCode.Return)  || UnityInput.GetKeyDown("enter") || UnityInput.GetKeyDown("space")){
             EvaluateAnswer();      
 		}else if(UnityInput.GetKeyDown("-") || UnityInput.GetKeyDown(KeyCode.KeypadMinus)){
-                answer.text ="-";
-            }
+            answer.text ="-";
+        }
         else if( EventSystem.current.currentSelectedGameObject != answer.gameObject){
             if(UnityInput.GetKeyDown("1") || UnityInput.GetKeyDown(KeyCode.Keypad1)){
                 answer.text+="1";
