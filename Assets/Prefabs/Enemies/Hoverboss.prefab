@@ -9871,7 +9871,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
   textlabel: {fileID: 4682044242378536754}
-  startingEquationDifficulty: 20
+  startingEquationDifficulty: 25
   startingOperations: 2
   startingNumbersForEquations: 2
   equationDifficulty: 0

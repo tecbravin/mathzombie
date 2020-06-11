@@ -44,6 +44,7 @@ namespace TowerDefense.Input
 		/// <summary>
 		/// Called by the confirm button on the UI
 		/// </summary>
+		/*
 		public void OnTowerPlacementConfirmation()
 		{
 			confirmationButtons.canvasEnabled = false;
@@ -402,5 +403,7 @@ namespace TowerDefense.Input
 				confirmationButtons.TryMove(screenPoint);
 			}
 		}
+		*/
 	}
+	
 }

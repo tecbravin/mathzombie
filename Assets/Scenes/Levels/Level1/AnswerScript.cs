@@ -54,10 +54,7 @@ public class AnswerScript : MonoBehaviour
         }
          #endif
 
-         #if !UNITY_EDITOR && UNITY_WEBGL
-            WebGLInput.captureAllKeyboardInput = false;
-        #endif
-        
+       
 		sendButton.onClick.AddListener(EvaluateAnswer);
         SetSelected(answer.gameObject);
 
@@ -96,7 +93,8 @@ public class AnswerScript : MonoBehaviour
             //Debug.Log("acertou pelo menos 1, faz alguma coisa");
         }
         answer.text = "";
-        //SetSelected(answer.gameObject);
+        SetSelected(answer.gameObject);
+        SetSelected(answer.gameObject);
     }
 
     bool validateAnswer(Transform go){
@@ -152,10 +150,10 @@ public class AnswerScript : MonoBehaviour
                 answer.text+="9";
             }else if(UnityInput.GetKeyDown("0") || UnityInput.GetKeyDown(KeyCode.Keypad0)){
                 answer.text+="0";
+            }else if(UnityInput.GetKeyDown("-") || UnityInput.GetKeyDown(KeyCode.KeypadMinus)){
+                answer.text ="-";
             }
         }
-        //SetSelected(answer.gameObject);
-        
 	}
 
      private void SetSelected(GameObject go)

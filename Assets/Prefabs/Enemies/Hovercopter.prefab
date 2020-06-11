@@ -19500,10 +19500,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   equation: {fileID: 0}
   textlabel: {fileID: 2679573588782312709}
-  startingEquationDifficulty: 9
+  startingEquationDifficulty: 20
   startingOperations: 3
   startingNumbersForEquations: 2
-  equationDifficulty: 0
+  equationDifficulty: 20
   operationsForEquation: 0
   operationsAvailable: 3
   numbersForEquation: 0
