@@ -46,13 +46,13 @@ public class AnswerScript : MonoBehaviour
     void Start()
     {
         answer.caretPosition = 0;
-        #if (UNITY_WEBPLAYER || UNITY_WEBGL) && !UNITY_EDITOR
+/*         #if (UNITY_WEBPLAYER || UNITY_WEBGL) && !UNITY_EDITOR
         try {
             Application.ExternalCall("GameControlReady");
         } catch (System.Exception e) {
             Debug.LogError("GameControlReady function not on webpage"+e);
         }
-         #endif
+         #endif */
 
        
 		sendButton.onClick.AddListener(EvaluateAnswer);
@@ -160,7 +160,7 @@ public class AnswerScript : MonoBehaviour
     {
         //Select the GameObject.
         EventSystem.current.SetSelectedGameObject(go);
-
+        answer.caretPosition = 0;
         //If we are using the keyboard right now, that's all we need to do.
         var standaloneInputModule = EventSystem.current.currentInputModule as StandaloneInputModule;
         if (standaloneInputModule != null && standaloneInputModule.inputMode == StandaloneInputModule.InputMode.Buttons)
