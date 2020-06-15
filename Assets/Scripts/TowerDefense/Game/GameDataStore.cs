@@ -35,17 +35,18 @@ namespace TowerDefense.Game
 		/// </summary>
 		/// <param name="levelId">The levelId to mark as complete</param>
 		/// <param name="starsEarned">Stars earned</param>
-		public void CompleteLevel(string levelId, int starsEarned)
+		public void CompleteLevel(string levelId, int starsEarned, int pointsEarned)
 		{
 			foreach (LevelSaveData level in completedLevels)
 			{
 				if (level.id == levelId)
 				{
 					level.numberOfStars = Mathf.Max(level.numberOfStars, starsEarned);
+					level.points = pointsEarned;
 					return;
 				}
 			}
-			completedLevels.Add(new LevelSaveData(levelId, starsEarned));
+			completedLevels.Add(new LevelSaveData(levelId, starsEarned, pointsEarned));
 		}
 
 		/// <summary>
@@ -75,6 +76,18 @@ namespace TowerDefense.Game
 				if (level.id == levelId)
 				{
 					return level.numberOfStars;
+				}
+			}
+			return 0;
+		}
+
+		public int GetNumberOfPointsForLevel( string levelId)
+		{
+			foreach (LevelSaveData level in completedLevels)
+			{
+				if (level.id == levelId)
+				{
+					return level.points;
 				}
 			}
 			return 0;

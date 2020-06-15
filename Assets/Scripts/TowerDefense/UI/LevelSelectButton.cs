@@ -26,7 +26,7 @@ namespace TowerDefense.UI
 		public Text description;
 
 		public Sprite starAchieved;
-
+		public Text pointsText;
 		public Image[] stars;
 
 		protected MouseScroll m_MouseScroll;
@@ -74,11 +74,18 @@ namespace TowerDefense.UI
 			{
 				return;
 			}
+			int pointsForLevel = gameManager.GetPointsForLevel(m_Item.id);
+			int pts = 0;
+			for (int i = 0; i < pointsForLevel; i++){
+				if(pointsForLevel > pts) pts = pointsForLevel;
+			}
 			int starsForLevel = gameManager.GetStarsForLevel(m_Item.id);
 			for (int i = 0; i < starsForLevel; i++)
 			{
 				stars[i].sprite = starAchieved;
 			}
+			pointsText.text = pts.ToString();
+			//Debug.Log(pointsForLevel);
 		}
 
 		/// <summary>

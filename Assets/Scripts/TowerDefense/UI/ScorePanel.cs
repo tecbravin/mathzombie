@@ -12,7 +12,7 @@ namespace TowerDefense.UI
 		/// Objects that represent the stars
 		/// </summary>
 		public Image[] starImages;
-
+		public int pts;
 		public Sprite achievedStarSprite;
 
 		/// <summary>
@@ -30,6 +30,10 @@ namespace TowerDefense.UI
 			{
 				starImages[i].sprite = achievedStarSprite;
 			}
+		}
+
+		public void SetPoints(int points){
+			pts = points;
 		}
 	}
 }

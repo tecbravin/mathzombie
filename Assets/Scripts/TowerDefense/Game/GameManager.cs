@@ -30,7 +30,7 @@ namespace TowerDefense.Game
 		/// </summary>
 		/// <param name="levelId">The levelId to mark as complete</param>
 		/// <param name="starsEarned"></param>
-		public void CompleteLevel(string levelId, int starsEarned)
+		public void CompleteLevel(string levelId, int starsEarned, int points)
 		{
 			if (!levelList.ContainsKey(levelId))
 			{
@@ -38,7 +38,7 @@ namespace TowerDefense.Game
 				return;
 			}
 
-			m_DataStore.CompleteLevel(levelId, starsEarned);
+			m_DataStore.CompleteLevel(levelId, starsEarned, points);
 			SaveData();
 		}
 
@@ -82,6 +82,16 @@ namespace TowerDefense.Game
 			}
 
 			return m_DataStore.GetNumberOfStarForLevel(levelId);
+		}
+
+		public int GetPointsForLevel(string levelId)
+		{
+			if (!levelList.ContainsKey(levelId))
+			{
+				Debug.LogWarningFormat("[GAME] Cannot check if level with id = {0} is completed. Not in level list", levelId);
+				return 0;
+			}
+			return m_DataStore.GetNumberOfPointsForLevel(levelId);
 		}
 	}
 }

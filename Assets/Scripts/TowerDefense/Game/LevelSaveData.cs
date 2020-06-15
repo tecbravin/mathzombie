@@ -10,11 +10,13 @@ namespace TowerDefense.Game
 	{
 		public string id;
 		public int numberOfStars;
+		public int points;
 
-		public LevelSaveData(string levelId, int numberOfStarsEarned)
+		public LevelSaveData(string levelId, int numberOfStarsEarned, int pts)
 		{
 			id = levelId;
 			numberOfStars = numberOfStarsEarned;
+			points = pts;
 		}
 	}
 }

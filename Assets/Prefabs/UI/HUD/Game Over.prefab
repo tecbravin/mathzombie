@@ -887,8 +887,8 @@ MonoBehaviour:
   endGameMessageText: {fileID: 114444767888515022}
   scorePanel: {fileID: 114753625047177706}
   menuSceneName: MainMenu
-  levelCompleteText: '{0} COMPLETE!'
-  levelFailedText: '{0} FAILED!'
+  levelCompleteText: '{0} COMPLETA!'
+  levelFailedText: '{0} FALHOU!'
   background: {fileID: 114977527437981662}
   winBackgroundColor: {r: 1, g: 0.922921, b: 0.30147058, a: 0.547}
   loseBackgroundColor: {r: 0.8161765, g: 0.47938365, b: 0.2640571, a: 0.534}

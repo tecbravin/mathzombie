@@ -6,6 +6,7 @@ using TowerDefense.Level;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using Core.Economy;
 
 namespace TowerDefense.UI
 {
@@ -78,7 +79,7 @@ namespace TowerDefense.UI
 		/// Reference to the <see cref="LevelManager" />
 		/// </summary>
 		protected LevelManager m_LevelManager;
-
+		public Text display;
 		/// <summary>
 		/// Safely unsubscribes from <see cref="LevelManager" /> events.
 		/// Go back to the main menu scene
@@ -154,13 +155,14 @@ namespace TowerDefense.UI
 		{
 			LevelItem level = GameManager.instance.GetLevelForCurrentScene();
 			endGameCanvas.enabled = true;
-
+			int points = CalculatePoints();
 			int score = CalculateFinalScore();
 			scorePanel.SetStars(score);
+			scorePanel.SetPoints(points);
 			if (level != null) 
 			{
 				endGameMessageText.text = string.Format (endResultText, level.name.ToUpper ());
-				GameManager.instance.CompleteLevel (level.id, score);
+				GameManager.instance.CompleteLevel (level.id, score, points);
 			} 
 			else 
 			{
@@ -293,6 +295,12 @@ namespace TowerDefense.UI
 			}
 			int score = CalculateScore(totalRemainingHealth, totalBaseHealth);
 			return score;
+		}
+
+		protected int CalculatePoints(){
+			int points = int.Parse(display.text);
+			Debug.Log(display.text);
+			return points;
 		}
 
 		/// <summary>
