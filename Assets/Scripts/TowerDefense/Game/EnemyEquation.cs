@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using Core.Utilities.LevelEquationManager;
-
+using TMPro;
     public class Equation : MonoBehaviour{
         public List<int> numbers = new List<int>();
         public List<string> operations = new List<string>();
@@ -15,7 +15,7 @@ public class EnemyEquation : MonoBehaviour
 
     // Start is called before the first frame update
     public Equation equation;
-    public TextMesh textlabel;
+    public TMP_Text textlabel;
    // public LevelEquationManager instance;
 
      public int startingEquationDifficulty = 3;
@@ -33,7 +33,9 @@ public class EnemyEquation : MonoBehaviour
     } 
 
     public Equation GenerateEquation(){
-        textlabel = GetComponentInChildren<TextMesh>();
+        if(!textlabel){
+            textlabel = GetComponentInChildren<TMP_Text>();
+        }
         Equation eq = new Equation();
         for(int i = 0; i<numbersForEquation;i++ ){
             eq.numbers.Add(Random.Range(2, equationDifficulty));
@@ -44,15 +46,19 @@ public class EnemyEquation : MonoBehaviour
             eq.operations.Add(Signal(operationsAvailable));
             eq.fullEq+=" " + eq.operations[i].ToString() + " " + eq.numbers[i+1].ToString();
             switch(eq.operations[i]){
-                case "-": 
+                case "-":
                     eq.result = eq.numbers[0] - eq.numbers[1];
                 break;
                 case "X": 
                     eq.result = eq.numbers[0] * eq.numbers[1];
                 break;
                 case "/": 
+                    if(eq.numbers[0] > eq.numbers[1]){
                     eq.result = eq.numbers[0] / eq.numbers[1];
-                                        Debug.Log(eq.result);
+                    }else{
+                        eq.result = eq.numbers[1] / eq.numbers[0];
+                        eq.fullEq=eq.numbers[1].ToString() + eq.operations[i].ToString() + " " + eq.numbers[0].ToString();
+                    }
                 break;
                 default:
                     eq.result = eq.numbers[0] + eq.numbers[1];

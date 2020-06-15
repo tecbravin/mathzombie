@@ -3,8 +3,9 @@
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -13,13 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   agentName: Hoverbuggy
   agentDescription: Light and fast
-  agentPrefab: {fileID: 114982529450900332, guid: a7bbeecce72db456b90bfb6b1968ccb8,
-    type: 2}
-  agentData:
-    projectile: {fileID: 1797349743178286, guid: efcfdd276fd9a4bce9c848912a90dc0b,
-      type: 2}
-    moveSpeed: 4.8
-    maxHealth: 4
-    damage: 1
-    fireRate: 1
-    searchRate: 1
+  agentPrefab: {fileID: 3537443878978239351, guid: a7bbeecce72db456b90bfb6b1968ccb8,
+    type: 3}
