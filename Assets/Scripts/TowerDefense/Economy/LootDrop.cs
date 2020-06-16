@@ -13,7 +13,7 @@ namespace TowerDefense.Economy
 		/// <summary>
 		/// The amount of loot/currency dropped when object "dies"
 		/// </summary>
-		public int lootDropped = 1;
+		public int lootDropped = 10;
 
 		/// <summary>
 		/// The attached DamagableBehaviour

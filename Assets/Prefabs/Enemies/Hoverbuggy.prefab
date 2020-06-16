@@ -19327,6 +19327,7 @@ GameObject:
   - component: {fileID: 6762368542182828739}
   - component: {fileID: 6872985871736489399}
   - component: {fileID: 6707461119598726917}
+  - component: {fileID: 4484964423244786616}
   - component: {fileID: 6647357364764450571}
   - component: {fileID: 6698287080548506413}
   - component: {fileID: 6642967256763235427}
@@ -19335,7 +19336,6 @@ GameObject:
   - component: {fileID: 3537443878978239349}
   - component: {fileID: 3537443878978239354}
   - component: {fileID: 5554208237922787907}
-  - component: {fileID: 4484964423244786616}
   - component: {fileID: 6647570453823145867}
   - component: {fileID: 3982508939908025574}
   - component: {fileID: 7141660822226627401}
@@ -19403,6 +19403,24 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &4484964423244786616
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511114609136056}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fedeb0b3c5e104ea19d0d4599d22ab97, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  chanceToSpawnCollisionPrefab: 1
+  collisionParticles: {fileID: 0}
+  alignment:
+    unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
+      type: 2}
 --- !u!114 &6647357364764450571
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19614,24 +19632,6 @@ MonoBehaviour:
   randomAudioSource: {fileID: 6647505885330131275}
   towerTargetter: {fileID: 114921850837260542}
   radiusEffectColor: {r: 0, g: 0, b: 0, a: 0}
---- !u!114 &4484964423244786616
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1511114609136056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fedeb0b3c5e104ea19d0d4599d22ab97, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 1
-  chanceToSpawnCollisionPrefab: 1
-  collisionParticles: {fileID: 0}
-  alignment:
-    unityObjectReference: {fileID: 11400000, guid: 9dc4735bf52f547d59ebe1007e9a0e7f,
-      type: 2}
 --- !u!114 &6647570453823145867
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -20,6 +20,7 @@ public class AnswerScript : MonoBehaviour
     public Button eraseButton;
     public Button minusButton;
     public Button sendButton;
+    public int ptPenalty = -4;
  public LevelManager levelManager;
     void SetKeyboard(){
         keyboardButtons = UIkeyboard.GetComponentsInChildren<Button>();
@@ -90,7 +91,7 @@ public class AnswerScript : MonoBehaviour
             }
         }
         if (score == 0){
-            levelManager.currency.AddCurrency(-10);
+            levelManager.currency.AddCurrency(ptPenalty);
         }else{
             //Debug.Log("acertou pelo menos 1, faz alguma coisa");
         }
