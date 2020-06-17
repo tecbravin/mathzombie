@@ -44,7 +44,7 @@ namespace TowerDefense.UI
 		/// Panel that shows final star rating
 		/// </summary>
 		public ScorePanel scorePanel;
-
+		public Text pointsText;
 		/// <summary>
 		/// Name of level select screen
 		/// </summary>
@@ -156,6 +156,7 @@ namespace TowerDefense.UI
 			LevelItem level = GameManager.instance.GetLevelForCurrentScene();
 			endGameCanvas.enabled = true;
 			int points = CalculatePoints();
+			pointsText.text = "Você fez "+points.ToString() + " pontos";
 			int score = CalculateFinalScore();
 			scorePanel.SetStars(score);
 			scorePanel.SetPoints(points);
